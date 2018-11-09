@@ -5,12 +5,19 @@
 
 <h2>Please fill the form to register!</h2>
 
-<form action="/Home/AddUser" method="post">
-    <label class="contol-label">First Name</label> <input id="firstName"type="text" name="FirstName" class="form-control" />
-    <label class="control-label">Last Name</label> <input id="lastName"type="text" name="LastName" class="form-control" />
-    <label class="control-label">Email</label> <input id="email"type="email" name="EmailAddress" class="form-control" />
-    <label class="control-label">Phone Number</label> <input id="phoneNumber"type="text" name="PhoneNumber" class="form-control" />
-    <label class="control-lable">Password</label> <input id="password"type="password" name="Password" class="form-control" />
+<form action="/Home/AddUser" method="post" onsubmit="return testInputs()">
+    <label class="contol-label">First Name</label> <input id="firstName" type="text" name="FirstName" class="form-control" />
+    <label class="control-label">Last Name</label> <input id="lastName" type="text" name="LastName" class="form-control" />
+    <label class="control-label">Email</label> <input id="email" type="email" name="EmailAddress" class="form-control" />
+    <label class="control-label">Phone Number</label> <input id="phoneNumber" type="text" name="PhoneNumber" class="form-control" />
+    <label class="control-lable">Password</label> <input id="password" type="password" name="Password" class="form-control" />
+    <input type="radio" name="gender" value="male" checked> Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="other"> Other
+
+    <br />
+    <br />
     <input type="submit" value="Register" class="btn-default" />
 </form>
-
+<script src="~/Scripts/Validate.js"></script>
+<p id="errormessage">@ViewBag.ErrorMessage</p>
