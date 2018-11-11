@@ -1,30 +1,98 @@
-﻿
-function testInputs()
-{
-    var FNRegEx = /^[a-zA-Z]{2,}$/g;
-    var LNRegEx = /^[a-zA-Z]{2,}$/g;
-    var EMRegEx = /"^[A-z0-9]{5,30}@[a-z]{5,10}.[a-z]{2,3}$"/g;
-    var PNRegEx = /"^\d{ 3})-(\d{ 3 }) -(\d{ 4 }) $"/g;
-    var PWRegEx = /"^[a-zA-Z]{2,}$")/g;
+﻿var namePattern = /^[a-zA-Z]{2,}$/
+var emailPattern = /^([A-z1-9]{2,})@([A-z1-9]{2,}).([A-z1-9]{2,})$/
+var zipPattern = /^\d{5}$/
+var phonePattern = /^([0-9]{3})( |-|())([0-9]{3})( |-|())([0-9]{4})$/
+var passPattern = /^[A-Za-z0-9]{5,}$/
 
-    var element1 = document.getElementById("firstName").value;
-    var element2 = document.getElementById("lastName").value;
-    var element3 = document.getElementById("email").value;
-    var element4 = document.getElementById("phoneNumber").value;
-    var element5 = document.getElementById("password").value;
 
-    if (!element1.match(FNRegEx) || !element2.match(LNRegEx) || !element3.match(EMRegEx) || !element4.match(PNRegEx) || !element5.match(PWRegEx))
-    {
-        return false;
+
+var ValidateFirstName = function () {
+    if (namePattern.test(document.getElementById("firstName").value)) {
+        document.getElementById("message").style.color = "green"
+        document.getElementById("message").innerHTML = " Valid"
     }
-
-    else
-    {
-        alert("You did not meet");
-        return true;
+    else {
+        document.getElementById("message").innerHTML = " Invalid"
+        document.getElementById("message").style.color = "red"
     }
-
 }
+
+
+var ValidateLastName = function () {
+    if (namePattern.test(document.getElementById("lastName").value)) {
+        document.getElementById("message2").style.color = "green"
+        document.getElementById("message2").innerHTML = " Valid"
+    }
+    else {
+        document.getElementById("message2").innerHTML = " Invalid"
+        document.getElementById("message2").style.color = "red"
+    }
+}
+
+
+var ValidatePhoneNumber = function () {
+    if (phonePattern.test(document.getElementById("phoneNumber").value)) {
+        document.getElementById("message5").style.color = "green"
+        document.getElementById("message5").innerHTML = " Valid"
+    }
+    else {
+        document.getElementById("message5").innerHTML = " Invalid"
+        document.getElementById("message5").style.color = "red"
+    }
+}
+
+var ValidateZipCode = function () {
+    if (zipPattern.test(document.getElementById("zipCode").value)) {
+        document.getElementById("message4").style.color = "green"
+        document.getElementById("message4").innerHTML = "Valid"
+    }
+    else {
+        document.getElementById("message4").innerHTML = "Invalid"
+        document.getElementById("message4").style.color = "red"
+    }
+}
+
+var ValidateEmail = function () {
+    if (emailPattern.test(document.getElementById("email").value)) {
+        document.getElementById("message3").style.color = "green"
+        document.getElementById("message3").innerHTML = " Valid"
+    }
+    else {
+        document.getElementById("message3").innerHTML = " Invalid"
+        document.getElementById("message3").style.color = "red"
+    }
+}
+
+
+var ValidatePassword = function () {
+    if (passPattern.test(document.getElementById("password").value)) {
+        document.getElementById("message6").style.color = "green"
+        document.getElementById("message6").innerHTML = " Valid"
+    }
+    else {
+        document.getElementById("message6").innerHTML = " Invalid"
+        document.getElementById("message6").style.color = "red"
+    }
+}
+
+
+var CheckPassword = function () {
+    if (document.getElementById("password").value == document.getElementById("password2").value) {
+        document.getElementById("matchMessage").style.color = "green"
+        document.getElementById("matchMessage").innerHTML = " Passwords Match"
+    }
+    else {
+        document.getElementById("matchMessage").innerHTML = " Passwords don't match"
+        document.getElementById("matchMessage").style.color = "red"
+    }
+}
+
+
+
+
+
+
+
 
 
 
