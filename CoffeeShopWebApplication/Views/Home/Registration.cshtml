@@ -3,7 +3,7 @@
     ViewBag.Title = "Registration";
 }
 <h2>Register</h2>
-<script src="~/Scripts/Validate.js"></script>
+
 <link href="~/Content/StyleStuff.css" rel="stylesheet" />
 <form action="/Home/AddUser" method="post">
     <label class="control-label">First Name </label>
@@ -53,4 +53,9 @@
 
     <input type="submit" value="Register!" class="btn-default" />
 </form>
+<script src="~/Scripts/Validate.js"></script>
 <p id="errormessage">@ViewBag.ErrorMessage</p>
+
+@*//<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+//form action"/Home/AddUser" id="regForm" method="post"
+//<input type="text" id="regFirstName" placeholder="First Name" name="FirstName" pattern="^[a-zA-Z]{2,}$" title="Hello!"/><br /><br />*@

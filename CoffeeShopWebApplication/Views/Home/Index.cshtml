@@ -7,3 +7,14 @@
 <h2>
     <a href="/Home/Registration">Register</a>
 </h2>
+@{ 
+    foreach (var item in ViewBag.Test)
+    {
+        <ol>
+       <li><h5>@item.Name</h5></li> 
+       <li><h5>@item.Description</h5></li>
+       <li><h5>@item.Quantity</h5></li>
+       <li><h5>@item.Price</h5></li>
+            </ol>
+    }
+}

@@ -11,6 +11,9 @@ namespace CoffeeShopWebApplication.Controllers
     {
         public ActionResult Index()
         {
+            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
+            ViewBag.Test = ORM.Items.ToList<Item>();
+
             return View();
         }
 
@@ -38,10 +41,13 @@ namespace CoffeeShopWebApplication.Controllers
             return View();
         }
 
-        public ActionResult AddUser(Register newUser)
+        public ActionResult AddUser(User newUser)
         {
             if(ModelState.IsValid)
             {
+                CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
+                ORM.Users.Add(newUser);
+                ORM.SaveChanges();
                 ViewBag.WelcomeMessage = $"Welcome {newUser.FirstName}!";
 
                 return View("Summary");
@@ -50,7 +56,7 @@ namespace CoffeeShopWebApplication.Controllers
             {
                 return View("Error");
             }
-
+           
         }
 
     }

@@ -89,3 +89,7 @@ C:\Users\Heather\Desktop\Grand Circus\CoffeeShopWebApplication\CoffeeShopWebAppl
 C:\Users\Heather\Desktop\Grand Circus\CoffeeShopWebApplication\CoffeeShopWebApplication\obj\Debug\CoffeeShopWebApplication.csproj.CopyComplete
 C:\Users\Heather\Desktop\Grand Circus\CoffeeShopWebApplication\CoffeeShopWebApplication\obj\Debug\CoffeeShopWebApplication.dll
 C:\Users\Heather\Desktop\Grand Circus\CoffeeShopWebApplication\CoffeeShopWebApplication\obj\Debug\CoffeeShopWebApplication.pdb
+C:\Users\Heather\Desktop\Grand Circus\CoffeeShopWebApplication\CoffeeShopWebApplication\bin\EntityFramework.dll
+C:\Users\Heather\Desktop\Grand Circus\CoffeeShopWebApplication\CoffeeShopWebApplication\bin\EntityFramework.SqlServer.dll
+C:\Users\Heather\Desktop\Grand Circus\CoffeeShopWebApplication\CoffeeShopWebApplication\bin\EntityFramework.xml
+C:\Users\Heather\Desktop\Grand Circus\CoffeeShopWebApplication\CoffeeShopWebApplication\bin\EntityFramework.SqlServer.xml
