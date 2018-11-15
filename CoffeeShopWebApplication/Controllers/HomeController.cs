@@ -58,6 +58,42 @@ namespace CoffeeShopWebApplication.Controllers
             }
            
         }
+        
+        public ActionResult AddItem()
+        {
+            return View();
+        }
 
+        public ActionResult FindItem(string name)
+        {
+            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
+            //find item
+            Item ItemToEdit = ORM.Items.Find(name);
+
+            if(ItemToEdit == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.ItemToEdit = ItemToEdit;
+            return View();
+
+        }
+        public ActionResult DeleteItem(string name)
+        {
+            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
+
+            Item ItemToDelete = ORM.Items.Find(name); //Find() is a method tha tis used to find objects by the primary key
+            //remove item
+            ORM.Items.Remove(ItemToDelete);
+
+            //Save changes to DB
+            ORM.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        
+      
     }
 }
