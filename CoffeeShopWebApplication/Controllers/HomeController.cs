@@ -12,7 +12,8 @@ namespace CoffeeShopWebApplication.Controllers
         public ActionResult Index()
         {
             CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
-            ViewBag.Test = ORM.Items.ToList<Item>();
+            List<Item> myList = ORM.Items.ToList();
+            ViewBag.ItemList = myList;
 
             return View();
         }
@@ -64,26 +65,44 @@ namespace CoffeeShopWebApplication.Controllers
             return View();
         }
 
-        public ActionResult FindItem(string name)
+        public ActionResult EditItem(string Name)
         {
-            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
-            //find item
-            Item ItemToEdit = ORM.Items.Find(name);
-
-            if(ItemToEdit == null)
+            if (Name == null || Name == "")
             {
-                return RedirectToAction("Index");
+                return View("Index");
             }
 
-            ViewBag.ItemToEdit = ItemToEdit;
-            return View();
+            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
+            Item found = ORM.Items.Find(Name);
 
+            if (found != null)
+            {
+                ViewBag.Item = found;
+                return View();
+            }
+
+            return View();
         }
+
+        public ActionResult SaveItemChanges(Item NewItem)
+        {
+            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
+            Item oldItem = ORM.Items.Find(NewItem.Name);
+
+            oldItem.Description = NewItem.Description;
+            oldItem.Price = NewItem.Price;
+            oldItem.Quantity = NewItem.Quantity;
+
+            ORM.Entry(oldItem).State = System.Data.Entity.EntityState.Modified;
+            ORM.SaveChanges();
+            return RedirectToAction("Index");
+        }
+       
         public ActionResult DeleteItem(string name)
         {
             CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
 
-            Item ItemToDelete = ORM.Items.Find(name); //Find() is a method tha tis used to find objects by the primary key
+            Item ItemToDelete = ORM.Items.Find(name); //Find() is a method that is used to find objects by the primary key
             //remove item
             ORM.Items.Remove(ItemToDelete);
 
@@ -93,7 +112,13 @@ namespace CoffeeShopWebApplication.Controllers
             return RedirectToAction("Index");
         }
 
-        
-      
+        public ActionResult AddNewItem(Item NewItem)
+        {
+            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
+
+            ORM.Items.Add(NewItem);
+            ORM.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

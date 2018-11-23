@@ -16,7 +16,7 @@
     </tr>
 
 
-    @foreach (var item in ViewBag.Test)
+    @foreach (var item in ViewBag.ItemList)
     {
         
             <tr>
@@ -24,8 +24,8 @@
                 <td>@item.Description</td>
                 <td>@item.Quantity</td>
                 <td>@item.Price</td>
-                <td><a href=" /Home/AddItem?name=@item.Name">Update</a></td>
-                <td><a href="/Home/DeleteItem?name=@item.Name" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a></td>
+                <td><a href="/Home/EditItem?Name=@item.Name">Update</a></td>
+                <td><a href="/Home/DeleteItem?Name=@item.Name" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a></td>
             </tr>
       
     }

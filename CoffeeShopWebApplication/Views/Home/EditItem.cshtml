@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "EditItem";
+}
+
+<h2>Edit An Item</h2>
+<link href="~/Content/StyleStuff.css" rel="stylesheet" />
+
+<form action="/Home/SaveItemChanges" method="post">
+    <label class="control-label">Name</label>
+    <div class="flex-container">
+        <input  type="hidden" hidden name="Name" value="@ViewBag.Item.Name" />
+        <input disabled type="text" value="@ViewBag.Item.Name" />
+    </div><br /><br />
+    <label class="control-label">Description</label>
+    <div class="flex-container">
+        <input type="text" name="Description"/>
+    </div><br /><br />
+    <label class="control-label">Quantity</label>
+    <div class="flex-container">
+        <input type="text" name="Quantity"/>
+    </div><br /><br />
+    <label class="control-label">Price</label>
+    <div class="flex-container">
+        <input type="text" name="Price"/>
+    </div><br /><br />
+    <input type="submit" value="Save" class="btn-default"/>
+    <input type="reset"/>
+</form>
+
+
